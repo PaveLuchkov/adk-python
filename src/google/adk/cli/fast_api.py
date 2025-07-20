@@ -229,7 +229,7 @@ def get_fast_api_app(
   # InMemory tracing dict.
   trace_dict: dict[str, Any] = {}
   session_trace_dict: dict[str, Any] = {}
-
+  """
   # Set up tracing in the FastAPI server.
   provider = TracerProvider()
   provider.add_span_processor(
@@ -253,7 +253,7 @@ def get_fast_api_app(
       )
 
   trace.set_tracer_provider(provider)
-
+  """
   @asynccontextmanager
   async def internal_lifespan(app: FastAPI):
     try:
@@ -417,7 +417,7 @@ def get_fast_api_app(
     if event_dict is None:
       raise HTTPException(status_code=404, detail="Trace not found")
     return event_dict
-
+  """
   @app.get("/debug/trace/session/{session_id}")
   def get_session_trace(session_id: str) -> Any:
     spans = memory_exporter.get_finished_spans(session_id)
@@ -435,7 +435,7 @@ def get_fast_api_app(
         }
         for s in spans
     ]
-
+  """
   @app.get(
       "/apps/{app_name}/users/{user_id}/sessions/{session_id}",
       response_model_exclude_none=True,
