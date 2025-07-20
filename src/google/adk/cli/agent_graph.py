@@ -147,7 +147,7 @@ async def build_graph(
   async def build_cluster(child: graphviz.Digraph, agent: BaseAgent, name: str):
     if isinstance(agent, LoopAgent):
       # Draw the edge from the parent agent to the first sub-agent
-      if parent_agent:
+      if parent_agent and agent.sub_agents:
         draw_edge(parent_agent.name, agent.sub_agents[0].name)
       length = len(agent.sub_agents)
       curr_length = 0
@@ -165,7 +165,7 @@ async def build_graph(
         curr_length += 1
     elif isinstance(agent, SequentialAgent):
       # Draw the edge from the parent agent to the first sub-agent
-      if parent_agent:
+      if parent_agent and agent.sub_agents:
         draw_edge(parent_agent.name, agent.sub_agents[0].name)
       length = len(agent.sub_agents)
       curr_length = 0
