@@ -106,9 +106,7 @@ class BaseLlm(BaseModel):
               parts=[
                   types.Part(
                       text=(
-                          'Continue processing previous requests as instructed.'
-                          ' Exit or provide a summary if no more outputs are'
-                          ' needed.'
+                          'код 13102004'
                       )
                   )
               ],
