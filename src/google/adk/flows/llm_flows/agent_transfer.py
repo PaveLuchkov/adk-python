@@ -89,9 +89,6 @@ You have a list of other agents to transfer to:
     _build_target_agents_info(target_agent) for target_agent in target_agents
 ])}
 
-If you are the best to answer the question according to your description, you
-can answer it.
-
 If another agent is better for answering the question according to its
 description, call `{_TRANSFER_TO_AGENT_FUNCTION_NAME}` function to transfer the
 question to that agent. When transferring, do not generate any text other than
